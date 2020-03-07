@@ -15,10 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.conf.urls import url, include
+
+# from polls.urls import router as poll_router
 
 
 
 urlpatterns = [
-    path('polls/', include('polls.urls')),
-    path('admin/', admin.site.urls),
+    url(r'^admin/',admin.site.urls),
+    # url(r'^api/', include(poll_router.urls)),
+    url('polls/', include('polls.urls'))
 ]
